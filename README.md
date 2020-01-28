@@ -49,7 +49,7 @@ If called without options a summary of the installation is displayed. Examples o
 
 ### LOCAL (nocmakenoroot version)
 
-1. Check the prerequisites on your system. Source your CMake and ROOT installations.
+1. Check the prerequisites on your system. Source your CMake and ROOT (requires build option GDML enabled) installations.
 2. Choose installation location and define path using the ILCSOFT environment variable:
   ```
   export ILCSOFT=/PATH-WHERE-TO-INSTALL
@@ -96,7 +96,7 @@ If called without options a summary of the installation is displayed. Examples o
   ```
   scl enable rh-git29 bash
   ```
-3. Source ROOT-environment from CVMFS appropiate to your system:
+3. Source ROOT-environment from CVMFS appropiate to your system (check with `uname -a`):
   ```
   //for SLC6 machine
   source /cvmfs/sft.cern.ch/lcg/releases/LCG_94/ROOT/6.14.04/x86_64-slc6-gcc62-opt/ROOT-env.sh
@@ -127,7 +127,7 @@ If called without options a summary of the installation is displayed. Examples o
   ```
   scl enable rh-git29 bash
   ```
-3. Source ROOT-environment from CVMFS appropiate to your system:
+3. Source ROOT-environment from CVMFS appropiate to your system (check with `uname -a`):
   ```
   //for SLC6 machine
   source /cvmfs/sft.cern.ch/lcg/releases/LCG_94/ROOT/6.14.04/x86_64-slc6-gcc62-opt/ROOT-env.sh
