@@ -157,6 +157,8 @@ If called without options a summary of the installation is displayed. Examples o
 CVMFS is mounted on your system, it is advisable to link it with the installation due to the speed up in time.
 For this check the releases named with cvmfs to get an idea.
 
+* For the CVMFS installations, it is neccessary to establish for every restart to source the right environment again, so mostly the scl-environment as well as the ROOT version from CVMFS.
+
 * Sometimes it is possible that a dependency for EUTelescope is changing which can have then implications on the 
 installation process itself. In case of problems with the installation, please report on the 
 [GitHub issue tracker](https://github.com/eutelescope/iLCInstall/issues).
