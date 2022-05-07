@@ -54,7 +54,8 @@ class Eutelescope(MarlinPKG):
         # build EUDAQ
         if self.env.get( "EUDAQ_VERSION", "" ):
             os.chdir( self.installPath+"/external" )
-            if( os.system( "git clone https://github.com/eudaq/eudaq eudaq/%s --branch %s" % (os.path.basename(self.env["EUDAQ_VERSION"]), os.path.basename(self.env["EUDAQ_VERSION"]))
+            #if( os.system( "git clone https://github.com/eudaq/eudaq eudaq/%s --branch %s" % (os.path.basename(self.env["EUDAQ_VERSION"]), os.path.basename(self.env["EUDAQ_VERSION"]))
+            if( os.system( "git clone git@github.com:eudaq/eudaq.git eudaq/%s --branch %s" % (os.path.basename(self.env["EUDAQ_VERSION"]), os.path.basename(self.env["EUDAQ_VERSION"]))
                            + " 2>&1 | tee -a " + self.logfile ) != 0 ):
                 self.abort( "failed to clone EUDAQ!" )
 
@@ -96,4 +97,5 @@ class Eutelescope(MarlinPKG):
         MarlinPKG.setMode(self, mode)
         
         self.download.type = "git-clone"
-        self.download.svnurl = 'https://github.com/eutelescope/eutelescope'
+        #self.download.svnurl = 'https://github.com/eutelescope/eutelescope'
+        self.download.svnurl = 'git@github.com:eutelescope/eutelescope.git'

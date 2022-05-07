@@ -335,10 +335,12 @@ class BaseILC:
                 # if svnurl not set by user generate a default one
                 if( len(self.download.svnurl) == 0 ):
                     # initialize svn settings for github
-                    self.download.accessmode = "https"
+                    #self.download.accessmode = "https"
+                    self.download.accessmode = "git@"
                     self.download.server = "github.com"
                     self.download.root = self.download.project
-                    self.download.svnurl = "%s://%s/%s/%s/" % (self.download.accessmode,self.download.server,self.download.root,self.download.project)
+                    #self.download.svnurl = "%s://%s/%s/%s/" % (self.download.accessmode,self.download.server,self.download.root,self.download.project)
+                    self.download.svnurl = "%s:%s:%s/%s/" % (self.download.accessmode,self.download.server,self.download.root,self.download.project)
             else:
                 self.abort( "download type " + self.download.type + " not recognized!!" )
 
@@ -711,7 +713,8 @@ class BaseILC:
 
         elif( self.download.type[:6] == "GitHub" ):
 	    #clone the whole repo into the directory
-	    cmd="git clone https://github.com/%s/%s.git %s --branch %s" % (self.download.gituser, self.download.gitrepo, self.version, self.version)
+	    #cmd="git clone https://github.com/%s/%s.git %s --branch %s" % (self.download.gituser, self.download.gitrepo, self.version, self.version)
+	    cmd="git clone git@github.com:%s/%s.git %s --branch %s" % (self.download.gituser, self.download.gitrepo, self.version, self.version)
 	    print "Executing command:",cmd
             if( os.system( cmd ) != 0 ):
                 self.abort( "Problems occurred during execution of " + cmd + " [!!ERROR!!]")
